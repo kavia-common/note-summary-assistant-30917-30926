@@ -13,34 +13,34 @@ export default Blits.Component('Home', {
       <Element x="80" y="140">
         <!-- Left: Notes list -->
         <Element x="0" y="0" w="1240" h="860">
-          <NotesList :items="$notes" @select="handleSelectNote" @delete="handleDeleteNote" />
+          <NotesList :items="$notes" @select="$handleSelectNote" @delete="$handleDeleteNote" />
         </Element>
         <!-- Right: Editor / Viewer -->
         <Element x="1280" y="0" w="560" h="860">
-          <Element :alpha="$mode === 'view' ? 1 : 0">
-            <Element w="560" h="420" :color="'#ffffff'" :effects="[$shader('radius', {radius: 12}), $shader('shadow', {color: '#00000022', blur: 24})]">
+          <Element :show="$mode === 'view'">
+            <Element w="560" h="420" color="#ffffff" :effects="[$shader('radius', {radius: 12}), $shader('shadow', {color: '#00000022', blur: 24})]">
               <Text x="24" y="20" size="32" color="#111827" :content="$currentTitle" maxwidth="512" />
               <Text x="24" y="72" size="24" color="#6B7280" :content="$currentDate" />
               <Text x="24" y="120" size="26" color="#111827" :content="$currentContent" maxwidth="512" lineheight="34" />
             </Element>
             <Element x="0" y="460" w="560" h="100">
-              <Element w="260" h="60" color="#2563EB" :effects="[$shader('radius', {radius: 12})]" @enter="handleEdit">
+              <Element w="260" h="60" color="#2563EB" :effects="[$shader('radius', {radius: 12})]" @enter="$handleEdit">
                 <Text x="24" y="12" size="30" color="#ffffff" content="Edit" />
               </Element>
-              <Element x="300" w="260" h="60" color="#EF4444" :effects="[$shader('radius', {radius: 12})]" @enter="handleDeleteCurrent">
+              <Element x="300" w="260" h="60" color="#EF4444" :effects="[$shader('radius', {radius: 12})]" @enter="$handleDeleteCurrent">
                 <Text x="24" y="12" size="30" color="#ffffff" content="Delete" />
               </Element>
             </Element>
           </Element>
 
-          <Element :alpha="$mode === 'edit' ? 1 : 0">
-            <NoteEditor ref="editor" :value="$editorContent" :title="$editorTitle" @save="handleSave" />
+          <Element :show="$mode === 'edit'">
+            <NoteEditor ref="editor" :value="$editorContent" :title="$editorTitle" @save="$handleSave" />
           </Element>
         </Element>
       </Element>
 
       <!-- Floating Action Button -->
-      <Element x="1720" y="920" w="120" h="120" color="#2563EB" :effects="[$shader('radius', {radius: 60}), $shader('shadow', {color: '#00000033', blur: 24})]" @enter="handleCreateNew">
+      <Element x="1720" y="920" w="120" h="120" color="#2563EB" :effects="[$shader('radius', {radius: 60}), $shader('shadow', {color: '#00000033', blur: 24})]" @enter="$handleCreateNew">
         <Text x="43" y="34" size="56" color="#ffffff" content="+" />
       </Element>
     </Element>
@@ -130,6 +130,25 @@ export default Blits.Component('Home', {
         this.editorContent = this.current.content
         this.mode = 'edit'
       }
+    },
+    // Template wrapper methods
+    $handleSelectNote(note) {
+      this.handleSelectNote(note)
+    },
+    $handleDeleteNote(note) {
+      this.handleDeleteNote(note)
+    },
+    $handleDeleteCurrent() {
+      this.handleDeleteCurrent()
+    },
+    $handleSave(payload) {
+      this.handleSave(payload)
+    },
+    $handleCreateNew() {
+      this.handleCreateNew()
+    },
+    $handleEdit() {
+      this.handleEdit()
     },
   },
 })

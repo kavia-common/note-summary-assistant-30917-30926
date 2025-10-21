@@ -3,9 +3,9 @@ import Blits from '@lightningjs/blits'
 export default Blits.Component('NoteEditor', {
   props: ['value', 'title'],
   template: `
-    <Element>
+    <Element w="560" h="860">
       <!-- Surface ---->
-      <Element x="0" y="0" w="560" h="560" :color="'#ffffff'" :effects="[$shader('radius', {radius: 12}), $shader('shadow', {color: '#00000022', blur: 24})]">
+      <Element x="0" y="0" w="560" h="560" color="#ffffff" :effects="[$shader('radius', {radius: 12}), $shader('shadow', {color: '#00000022', blur: 24})]">
         <Text x="24" y="22" size="26" color="#6B7280" :content="$titleLabel" />
         <!-- Content text (multi-line). Using plain Text with manual editing via input events. -->
         <Text ref="content" x="24" y="64" size="28" color="#111827" :content="$displayValue" maxwidth="510" lineheight="36" />

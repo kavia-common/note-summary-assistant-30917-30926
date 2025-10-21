@@ -5,12 +5,12 @@ export default Blits.Component('NotesList', {
   components: { NoteCard },
   props: ['items'],
   template: `
-    <Element>
+    <Element w="1240" h="860">
       <Element :for="(n, i) in $items" :key="$n.id" :x="$calcX($i)" :y="$calcY($i)">
         <NoteCard :note="$n" @select="$onSelect" @delete="$onDelete" />
       </Element>
       <!-- Empty state -->
-      <Element :alpha="$showEmpty ? 1 : 0" x="120" y="280" w="800" h="240" :color="'#ffffff'" :effects="[$shader('radius', {radius: 12}), $shader('shadow', {color: '#0000001a', blur: 20})]">
+      <Element :show="$showEmpty" x="120" y="280" w="800" h="240" color="#ffffff" :effects="[$shader('radius', {radius: 12}), $shader('shadow', {color: '#0000001a', blur: 20})]">
         <Text x="40" y="60" size="40" color="#111827" content="No notes yet" />
         <Text x="40" y="120" size="28" color="#6B7280" content="Press the + button to create your first note." />
       </Element>

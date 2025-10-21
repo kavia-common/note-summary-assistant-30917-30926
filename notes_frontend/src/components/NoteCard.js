@@ -3,7 +3,7 @@ import Blits from '@lightningjs/blits'
 export default Blits.Component('NoteCard', {
   props: ['note'],
   template: `
-    <Element w="560" h="220" :color="'#ffffff'" :effects="[$shader('radius', {radius: 12}), $shader('shadow', {color: '#00000022', blur: 24, spread: 2})]" @enter="handleClick">
+    <Element w="560" h="220" color="#ffffff" :effects="[$shader('radius', {radius: 12}), $shader('shadow', {color: '#00000022', blur: 24, spread: 2})]" @enter="handleClick">
       <!-- Title -->
       <Text x="24" y="20" size="36" color="#111827" :content="$note.title" maxwidth="512" />
       <!-- Summary -->
