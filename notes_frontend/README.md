@@ -1,49 +1,47 @@
-# lightningjs
+# Ocean Notes (LightningJS / Blits)
 
-### lightningjs
+A modern notes application where users can create, view, and manage notes with auto-generated summaries. Built with Lightning 3 (Blits) and styled using the Ocean Professional theme.
 
+## Features
+- Create notes and auto-generate a short summary (first sentence or first 120 chars)
+- List notes as clean cards with title, summary, date
+- View full note content and delete notes
+- Local persistence via browser localStorage
+- Floating action button to quickly add a new note
+- Ocean Professional theme (primary #2563EB, success/secondary #F59E0B, error #EF4444, background #f9fafb, surface #ffffff, text #111827)
 
-Welcome to the _lightningjs_ Lightning 3 Blits App!
+## Getting started
 
-### Getting started
-
-Follow the steps below to get your Lightning 3 Blits App up and running in no time.
-
-#### IDE setup
-
-It is highly recommended to install the Blits [VS-code extension](https://marketplace.visualstudio.com/items?itemName=LightningJS.lightning-blits) which will give you template highlighting and improved autocompletion.
-
-#### Project setup
-
-Run the following command to install the dependencies of your App:
-
+Install dependencies:
 ```sh
 npm install
 ```
 
-#### Build and run in development mode
-
-Run your App in development mode:
-
+Run in development (port 3000):
 ```sh
 npm run dev
 ```
 
-This command uses Vite to fire up a local server, with Hot Reloading support. Visit the provided link in your web browser to see the App in action.
-
-#### Build the App for production
-
-Create an optimized and minified version of your App:
-
+Build for production:
 ```sh
 npm run build
 ```
 
-This will create a production version of the app in the `dist` folder.
+## Usage
+- Press the + floating action button to create a note.
+- Type content in the editor; press Enter on the Save button to save.
+- Select a card to view a note; use Edit to modify or Delete to remove it.
+- Notes persist across reloads.
 
+## Tech
+- Lightning 3, Blits, Vite
+- No backend / external services required
+
+## Notes
+- Summaries are generated client-side using a simple heuristic (no AI).
+- Data stored in localStorage under key notes_app_items_v1.
 
 ### Resources
-
-- [Blits documentation](https://lightningjs.io/v3-docs/blits/getting_started/intro.html) - official documentation
-- [Blits Example App](https://blits-demo.lightningjs.io/?source=true) - a great reference to learn by example
-- [Blits Components](https://lightningjs.io/blits-components.html) - off-the-shelf, basic and performant reference components
+- [Blits documentation](https://lightningjs.io/v3-docs/blits/getting_started/intro.html)
+- [Blits Example App](https://blits-demo.lightningjs.io/?source=true)
+- [Blits Components](https://lightningjs.io/blits-components.html)
