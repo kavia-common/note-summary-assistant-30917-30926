@@ -4,11 +4,11 @@ export default Blits.Component('NoteEditor', {
   props: ['value', 'title'],
   template: `
     <Element>
-      <!-- Surface -->
-      <Element x="0" y="0" w="1760" h="560" :color="'#ffffff'" :effects="[$shader('radius', {radius: 12}), $shader('shadow', {color: '#00000022', blur: 24})]">
+      <!-- Surface ---->
+      <Element x="0" y="0" w="560" h="560" :color="'#ffffff'" :effects="[$shader('radius', {radius: 12}), $shader('shadow', {color: '#00000022', blur: 24})]">
         <Text x="24" y="22" size="26" color="#6B7280" :content="$titleLabel" />
         <!-- Content text (multi-line). Using plain Text with manual editing via input events. -->
-        <Text ref="content" x="24" y="64" size="28" color="#111827" :content="$displayValue" maxwidth="1710" lineheight="36" />
+        <Text ref="content" x="24" y="64" size="28" color="#111827" :content="$displayValue" maxwidth="510" lineheight="36" />
       </Element>
 
       <!-- Save button -->
@@ -32,6 +32,14 @@ export default Blits.Component('NoteEditor', {
     },
     titleLabel() {
       return `Title: ${this.titleInternal || 'Untitled'}`
+    },
+  },
+  watch: {
+    value(newVal) {
+      this.internal = newVal || ''
+    },
+    title(newVal) {
+      this.titleInternal = newVal || ''
     },
   },
   methods: {
