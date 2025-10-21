@@ -66,22 +66,22 @@ export default Blits.Component('NoteEditor', {
     },
   },
   input: {
-    up(e) {
+    up() {
       // ignored in text entry
     },
-    down(e) {
+    down() {
       // ignored in text entry
     },
-    left(e) {
+    left() {
       // ignored in text entry
     },
-    right(e) {
+    right() {
       // ignored in text entry
     },
-    enter(e) {
+    enter() {
       // default enter bound to Save via @enter
     },
-    back(e) {
+    back() {
       // treat back as minor deletion
       if (this.internal.length) {
         this.internal = this.internal.slice(0, -1)

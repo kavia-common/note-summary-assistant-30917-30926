@@ -31,6 +31,13 @@ export default Blits.Component('NoteCard', {
       const d = new Date(ts || Date.now())
       return d.toLocaleString()
     },
+    // Template wrapper methods
+    $onDelete() {
+      this.onDelete()
+    },
+    $formatDate(ts) {
+      return this.formatDate(ts)
+    },
   },
   input: {
     enter() {

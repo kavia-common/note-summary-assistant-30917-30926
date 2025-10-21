@@ -148,5 +148,8 @@ export default Blits.Component('Home', {
     $editSelected() {
       this.editSelected()
     },
+    $formatDate(ts) {
+      return this.formatDate(ts)
+    },
   },
 })

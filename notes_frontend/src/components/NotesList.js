@@ -27,5 +27,12 @@ export default Blits.Component('NotesList', {
       /** Bubble delete up to parent. */
       this.$emit('delete', note)
     },
+    // Template wrapper methods
+    $onSelect(note) {
+      this.onSelect(note)
+    },
+    $onDelete(note) {
+      this.onDelete(note)
+    },
   },
 })
